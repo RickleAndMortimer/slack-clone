@@ -1,8 +1,8 @@
 let socket = io();
 
 let messages = document.getElementById('messages');
-let form = document.getElementById('form');
-let input = document.getElementById('input');
+let messagebar = document.getElementById('messagebar');
+let messagefield = document.getElementById('messagefield');
 
 let user = document.getElementById('username');
 let signin = document.getElementById('signin');
@@ -27,11 +27,11 @@ signin.addEventListener('submit', e => {
     signin.remove();
 });
 
-form.addEventListener('submit', function(e) {
+messagebar.addEventListener('submit', function(e) {
     e.preventDefault();
-    if (input.value) {
-        socket.emit('chat message', {username: username, message: input.value});
-        input.value = '';
+    if (messagefield.value) {
+        socket.emit('chat message', {username: username, message: messagefield.value});
+        messagefield.value = '';
     }
 });
 

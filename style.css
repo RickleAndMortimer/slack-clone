@@ -12,6 +12,13 @@ body {
     padding: 24px;
 }
 
+#infobar {
+    min-height: 3rem;
+    background-color: blue;
+    margin-bottom: auto;
+}
+
+
 #signin input {
     height: 24px;
 }

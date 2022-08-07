@@ -26,12 +26,12 @@ function makeMessageHTML(username, msg) {
 userlistbutton.addEventListener('click', e => {
     if (userlistisopen) {
         console.log('user list is open');
-        userlistcontainer.style.display = 'block';
+        userlistcontainer.style.display = 'none';
         userlistisopen = false;
     }
     else {
         console.log('user list is closed');
-        userlistcontainer.style.display = 'none';
+        userlistcontainer.style.display = 'block';
         userlistisopen = true;
     }
 });

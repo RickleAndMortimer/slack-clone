@@ -1,17 +1,11 @@
 <!DOCTYPE HTML>
 <html>
     <head>
-    <title>Socket.IO chat</title>
-    <link rel="stylesheet" href="style.css"/>
+        <title>Socket.IO chat</title>
+        <link rel="stylesheet" href="style.css"/>
     </head>
+
     <body>
-        <div id="signin">
-            <p>Welcome to this server</p>
-            <form id="user">
-                <input id="username" placeholder="Enter username" type="text" autocomplete="off"/>
-                <input id="signin-submit" type="submit"/>
-            </form>
-        </div>
         <div id="content">
             <div id="channels">
                 <ul id="channelslist">
@@ -27,11 +21,19 @@
                 </ul>
                 <form id="messagebar" action="">
                     <input id="messagefield" autocomplete="off" />
-                    <button>Send</button>
+                    <button id="send-button">Send</button>
                 </form>
             </div>
         </div>    
-      <script src="/socket.io/socket.io.js"></script>
-      <script src="script.js"></script>
+
+        <div id="signin">
+            <p>Welcome to this server</p>
+            <form id="user">
+                <input id="username" placeholder="Enter username" type="text" autocomplete="on"/>
+                <input id="signin-submit" type="submit"/>
+            </form>
+        </div>
+        <script src="/socket.io/socket.io.js"></script>
+        <script src="script.js"></script>
     </body>
 </html>

@@ -30,7 +30,7 @@ app.post('/api/v1/users', async (req, res) => {
         const database = client.db('slack-clone');                             
         const users_collection = database.collection('users');                           
 
-        await users_collection.find({ username: req.body.username }).toArray(async function(err, result) {
+        users_collection.find({ username: req.body.username }).toArray(async function(err, result) {
             if (err) throw err;
             if (result.length == 0) {
                 const user = await users_collection.insertOne({ 'username': req.body.username });
@@ -60,16 +60,16 @@ app.get('/api/v1/channels', async (req, res) => {
 io.on('connection', (socket) => {
     console.log('a user connected');
 
+	socket.on('chat message', (msg) => {
+        let time = new Date();
+        if (msg.username)
+            io.emit('chat message', {username: msg.username, message: msg.message, time: time});
+	});
+
     socket.on('disconnect', () => {
         console.log('user disconnected');
     });
-});
 
-io.on('connection', (socket) => {
-	socket.on('chat message', (msg) => {
-        if (msg.username)
-            io.emit('chat message', {username: msg.username, message: msg.message});
-	});
 });
 
 server.listen(port, () => {

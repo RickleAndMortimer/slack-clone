@@ -12,6 +12,34 @@ body {
     padding: 24px;
 }
 
+#userlist {
+    list-style-type:none;
+    width: 125px;
+    background-color: purple;
+}
+
+#userlistcontainer {
+    display: none;
+}
+
+#userlistbutton {
+    height: 1.5rem;
+    width: 1.5rem;
+    margin: 10px;
+}
+
+#infobar {
+    min-height: 3rem;
+    max-height: 3rem;
+    background-color: blue;
+    margin-bottom: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+
 #signin input {
     height: 24px;
 }

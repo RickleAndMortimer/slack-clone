@@ -3,11 +3,15 @@ let socket = io();
 let messages = document.getElementById('messages');
 let messagebar = document.getElementById('messagebar');
 let messagefield = document.getElementById('messagefield');
+let userlistbutton = document.getElementById('userlistbutton')
+let userlistcontainer = document.getElementById('userlistcontainer')
 
 let user = document.getElementById('username');
 let signin = document.getElementById('signin');
 
 let username = '';
+let userlistisopen = false;
+
 
 function makeMessageHTML(username, msg) {
     let item = document.createElement('li');
@@ -19,6 +23,19 @@ function makeMessageHTML(username, msg) {
     return item;
 }
 
+userlistbutton.addEventListener('click', e => {
+    if (userlistisopen) {
+        console.log('user list is open');
+        userlistcontainer.style.display = 'none';
+        userlistisopen = false;
+    }
+    else {
+        console.log('user list is closed');
+        userlistcontainer.style.display = 'block';
+        userlistisopen = true;
+    }
+});
+
 signin.addEventListener('submit', e => {
     e.preventDefault();
     console.log('cat');
@@ -26,6 +43,7 @@ signin.addEventListener('submit', e => {
     console.log(username);
     signin.remove();
 });
+
 
 messagebar.addEventListener('submit', function(e) {
     e.preventDefault();

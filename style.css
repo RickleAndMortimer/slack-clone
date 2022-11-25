@@ -16,6 +16,7 @@ body {
     list-style-type:none;
     width: 125px;
     background-color: purple;
+    margin: 0;
 }
 
 #userlistcontainer {

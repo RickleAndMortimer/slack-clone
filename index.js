@@ -29,5 +29,5 @@ io.on('connection', (socket) => {
 });
 
 server.listen(port, () => {
-    console.log(`listening in ${port}`);
+    console.log(`listening in localhost:${port}`);
 });
